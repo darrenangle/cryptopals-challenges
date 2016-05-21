@@ -13,6 +13,10 @@
 
 import binascii
 def hexToBase64(hex):
-	return binascii.b2a_base64(hex.decode("hex"))
+	try:
+		hexval = int(hex,16) 
+		return binascii.b2a_base64(hex.decode("hex"))
+	except ValueError:
+		return "Invalid Hex"
 
 print hexToBase64("49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d")
